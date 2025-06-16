@@ -3,11 +3,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const skillBars = document.querySelectorAll(".skill-progress");
 
   function animateSkillBars() {
-    skillBars.forEach((bar) => {
-      const width = bar.style.width;
+    document.querySelectorAll(".skill-item").forEach((item) => {
+      const percentage = item.querySelector(
+        ".skill-info span:last-child"
+      ).textContent;
+      const bar = item.querySelector(".skill-progress");
       bar.style.width = "0";
       setTimeout(() => {
-        bar.style.width = width;
+        bar.style.width = percentage;
       }, 100);
     });
   }
